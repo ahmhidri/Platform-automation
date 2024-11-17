@@ -34,10 +34,20 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  staging-approval-gate:
+    needs: build
+    environment: stage
+    runs-on: self-hosted
+    steps:
+      - name: approved
+        env: 
+          ENV_NAME: Stage
+        run: write-host "Approve for $($env.ENV_NAME)"
   deploy-dev:
     # The type of runner that the job will run on
     runs-on: self-hosted
     needs: build
+    environment: stage
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
