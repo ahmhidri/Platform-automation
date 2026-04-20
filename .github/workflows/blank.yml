@@ -59,7 +59,7 @@ jobs:
     runs-on: self-hosted
     needs: [build, deploy-dev]
     environment: prod
-    
+
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -75,4 +75,3 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      
